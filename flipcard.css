@@ -1,0 +1,534 @@
+/* General Styles */
+body {
+
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;  /* Center horizontally */
+  align-items: center;  /* Center vertically */
+  height: 50vh;  /* Full viewport height */
+  background-color: #f0f0f0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.container {
+  background: linear-gradient(120deg, #a485f4, #5ca9f8), rgba(153, 85, 222, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  max-width: 100%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 300px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+/* Flashcards and Deck Text Styles */
+.container h2 {
+  font-family: 'Roboto', sans-serif; /* Clean and modern font */
+  font-size: 1.5rem; /* Make text slightly larger */
+  font-weight: 600; /* Semi-bold for clarity */
+  color: #fff; /* White text */
+  text-align: center; /* Center align */
+  margin: 15px 0; /* Margin to space out the text */
+  letter-spacing: 1px; /* Slight letter spacing */
+  text-transform: uppercase; /* Uppercase letters for emphasis */
+}
+
+.container h4 {
+  font-size: 1.6rem; /* Slightly smaller than decks text */
+  color: #e52635; /* Red color for flashcards text */
+  background: linear-gradient(45deg, #ff4757, #f39c12); /* Gradient effect */
+  -webkit-background-clip: text; /* Clip gradient to text */
+  background-clip: text; /* Ensure gradient is applied */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  margin-left: 160px;
+
+}
+
+
+/* Deck and Flashcard List Styles */
+.deck-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.deck-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #e6e6e6;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deck-view h3 {
+  font-size: 1.8rem; /* Slightly larger for deck text */
+  color: #25333d; /* Blue color to complement the design */
+  background: linear-gradient(45deg, #3498db, #9b59b6); /* Gradient background */
+  -webkit-background-clip: text; /* Clip gradient to text */
+  background-clip: text; /* Apply gradient to the text */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 96.5%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  color: #000000;
+  border: 1px solid #ddd;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+.form-group input::placeholder {
+  color: #dee7f6; /* Choose a color that complements the design */
+  font-style: italic; /* Optional: Add styling for placeholder text */
+  font-weight: normal;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #18181B;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #414244;
+}
+
+/* Flashcard and Answer Input */
+
+.flashcard-container {
+  right: 20px;
+  display: flex; /* Flexbox to align flashcard and buttons */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between buttons and flashcard */
+  margin: 20px auto; /* Center container horizontally */
+  max-width: 300px; /* Optional: Limit the container's width */
+  position: relative; /* Ensures stacking context for absolute positioning if needed */
+  height: auto;
+}
+
+.flashcard-list {
+  display: flex; /* Display all flashcards in one line */
+  flex-wrap: nowrap; /* Prevent new cards from wrapping to the next line */
+  padding: 0;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+}
+
+.flashcard {
+  width: 100%;
+  height: auto;
+  min-height: 350px;  /* Increased min-height */
+  transform-style: preserve-3d;
+  transition: transform 0.6s, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+  margin-right: 10px;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;  /* Make sure the content inside stacks */
+}
+
+
+.flashcard.flipped {
+  transform: rotateY(180deg); /* Flip effect */
+}
+
+.flashcard .front, .flashcard .back {
+  position: absolute;
+  backface-visibility: hidden; /* Hide back side when flipped */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 20px;  /* Ensure padding is applied */
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+.flashcard .front {
+  background-color: #1e90ff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 0;
+  text-align: center;
+  border-radius: 8px;
+  margin: 0;
+  width: 80%;
+  height: 80%;
+}
+
+.flashcard .back {
+  background-color: #ff4757;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-align: center;
+  transform: rotateY(180deg); /* Initially rotated */
+  border-radius: 8px;
+  width: 70%;
+  height: 70%;
+  right: 10px;
+}
+
+/* Feedback Styles */
+.feedback {
+  text-align: center;
+  width: 60px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9; /* Light background for visibility */
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.flashcard-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.flashcard-buttons button {
+  background-color: #f39c12;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.flashcard-buttons button.edit {
+  background-color: #3498db; /* Blue for edit */
+  color: white;
+}
+
+.flashcard-buttons button.delete {
+  background-color: #e74c3c; /* Red for delete */
+  color: white;
+}
+
+.flashcard-buttons button:hover {
+  opacity: 0.8; /* Slight hover effect */
+}
+
+/* Overlapping Flashcards: Newer cards behind the first card */
+.flashcard-item {
+  position: relative; /* Changed to relative for better stacking */
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  height: auto;
+}
+
+/* Hover effect: Bring hovered flashcard to the top temporarily */
+.flashcard-item:hover {
+  z-index: 20; 
+}
+
+/* Prevent Next button and input field from being overlapped */
+.answer-input {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+
+.next-button-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: #e74c3c;
+}
+
+.next-button {
+  font-size: 16px; /* Ensure a consistent font size */
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10; /* Make sure it appears on top */
+  height: 40px;
+  margin-left: -20px;
+}
+
+.next-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05); /* Slightly increase size on hover */
+  transition: transform 0.2s; /* Smooth transition */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+      width: 90%; /* Make container width responsive */
+  }
+
+  .flashcard {
+      width: 120px; /* Adjust flashcard width */
+      height: 160px; /* Adjust flashcard height */
+  }
+
+  .next-button {
+      font-size: 14px; /* Adjust button size */
+  }
+}
+
+/* Navigation buttons as icons */
+.navigation-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% + 40px);
+  margin-top: 10px;
+}
+
+.navigation-container button {
+  all: unset;
+  font-size: 24px;
+  color: #6a11cb;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 10px;
+  transition: background 0.3s;
+}
+
+
+.navigation-container button:hover {
+  background: #ddd;
+}
+
+.navigation-container .prev {
+  position: absolute;
+  left: -70px;
+  top: -330px;
+}
+
+.navigation-container .next {
+  position: absolute;
+  right: -40px;
+  top: -330px;
+}
+
+/* Edit and delete buttons */
+.EditDelete {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.EditDelete button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.EditDelete .edit {
+  background: #ff9800;
+}
+
+.EditDelete .edit:hover {
+  background: #e68900;
+}
+
+.EditDelete .delete {
+  background: #f44336;
+}
+
+.EditDelete .delete:hover {
+  background: #d32f2f;
+}
+
+/* Answer input and check answer button */
+.answerChecker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.answerChecker input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.answerChecker input[type="text"]:focus {
+  border-color: #6a11cb;
+}
+
+.answerChecker button {
+  background: #6a11cb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.answerChecker button:hover {
+  background: #563dbf;
+}
+
+/* Center the logout container */
+.logout-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 20vh; /* Full viewport height */
+}
+
+/* Styling the logout button */
+.logout-button {
+  display: inline-block;
+  background-color: #ff5733; /* Vibrant background color */
+  color: white; /* White text */
+  font-size: 16px; /* Text size */
+  font-weight: bold; /* Bold text */
+  text-align: center;
+  padding: 12px 25px; /* Padding around the text */
+  border-radius: 25px; /* Rounded corners */
+  text-decoration: none; /* Remove underline from the link */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover effect */
+.logout-button:hover {
+  background-color: #c0392b; /* Darker shade on hover */
+  transform: translateY(-3px); /* Slightly raise the button */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+/* Optional: Add an icon next to the text */
+.logout-button::before {
+  content: '\f08b'; /* FontAwesome 'sign-out' icon */
+  font-family: 'Font Awesome 5 Free'; /* Ensure the icon uses Font Awesome */
+  font-weight: 900; /* FontAwesome free icons require this weight */
+  margin-right: 8px; /* Space between the icon and text */
+}
+
+/* Center the back button container */
+.back-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 10vh; /* Full viewport height */
+}
+
+/* Styling the back button */
+.back-button {
+  display: inline-block;
+  background-color: #3498db; /* Cool blue background */
+  color: white; /* White text */
+  font-size: 18px; /* Larger text size for visibility */
+  font-weight: bold; /* Bold text for emphasis */
+  text-align: center;
+  padding: 15px 30px; /* Increased padding for a larger button */
+  border-radius: 30px; /* Rounded corners */
+  text-decoration: none; /* Remove underline from the button */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions for hover effects */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+/* Hover effect */
+.back-button:hover {
+  background-color: #2980b9; /* Darker shade of blue on hover */
+  transform: translateY(-4px); /* Slightly raise the button */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Optional: Add an icon to the button */
+.back-button::before {
+  content: '\f104'; /* FontAwesome left arrow icon */
+  font-family: 'Font Awesome 5 Free'; /* Font Awesome icon */
+  font-weight: 900; /* FontAwesome free icons require this weight */
+  margin-right: 10px; /* Space between the icon and text */
+}
+
+
+#deckH1 {
+  font-family: 'Roboto', sans-serif; /* Clean, modern font */
+  font-size: 3rem; /* Large text size for emphasis */
+  font-weight: 900; /* Bold for stronger presence */
+  text-align: center; /* Center the text */
+  color: #ffffff; /* White text */
+  background: linear-gradient(45deg, #6a11cb, #2575fc); /* Smooth gradient with complementary colors */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  background-clip: text; /* Ensures the gradient is clipped to the text */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  padding: 20px; /* Padding around the text */
+  margin: 0; /* Remove default margin */
+  letter-spacing: 2px; /* Increased letter spacing for a clean look */
+  transition: none; /* No hover transition */
+}
+
+
+#flashH4 {
+  left: 100px;
+}
